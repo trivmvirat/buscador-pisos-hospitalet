@@ -15,6 +15,7 @@ POST /api/eliminar {"url": ..., "titulo": ...}
   - los favoritos no se pueden eliminar (responde 403)
 """
 import json
+import sys
 import threading
 import tomllib
 from functools import partial
@@ -84,6 +85,9 @@ class Manejador(SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
+    # La consola de Windows no siempre admite ⭐ o 🗑: sin esto, el print fallaba y la web veía un error
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
     servidor = ThreadingHTTPServer(("127.0.0.1", PUERTO), partial(Manejador, directory=str(RAIZ)))
     print(f"Webs en http://localhost:{PUERTO}/informe.html  (Ctrl+C para parar)")
     servidor.serve_forever()
