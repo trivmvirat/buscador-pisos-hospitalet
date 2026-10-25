@@ -285,8 +285,8 @@ def _ficha(a: dict) -> str:
     aprox = '<div class="aprox">Ubicación aproximada (por barrio)</div>' if a.get("coords_aprox") else ""
     lugar = ", ".join(x for x in (a.get("barrio"), a.get("municipio")) if x)
 
-    # Los favoritos tienen el botón 🗑 bloqueado: no se pueden eliminar
-    if a.get("favorito"):
+    # Solo los marcados con ⭐ tienen el botón 🗑 bloqueado: no se pueden eliminar
+    if a.get("estrella"):
         enlaces.append('<span class="estrella activa" title="En tus favoritos">★ Favorito</span>')
         enlaces.append('<button class="eliminar" type="button" disabled '
                        'title="Los favoritos no se pueden eliminar">🔒 Eliminar</button>')
@@ -294,7 +294,7 @@ def _ficha(a: dict) -> str:
         enlaces.append('<button class="estrella" type="button" title="Añadir a favoritos">☆ Favorito</button>')
         enlaces.append(f'<button class="eliminar" type="button" data-titulo="{_e(a["titulo"])}">🗑 Eliminar</button>')
 
-    return f"""<article class="piso{' favorito' if a.get('favorito') else ''}" data-url="{_e(a['url'])}" data-min="{a['minutos_coche']:.1f}" data-precio="{a['precio']}"{' data-nuevo="1"' if a['estado'] == 'nuevo' else ''}>
+    return f"""<article class="piso{' favorito' if a.get('estrella') else ''}" data-url="{_e(a['url'])}" data-min="{a['minutos_coche']:.1f}" data-precio="{a['precio']}"{' data-nuevo="1"' if a['estado'] == 'nuevo' else ''}>
   <div class="galeria">{galeria}</div>
   <div class="datos">
     <div class="cabeza"><span class="precio">{a['precio']} €/mes</span>

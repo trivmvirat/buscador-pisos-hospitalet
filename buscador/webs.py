@@ -45,6 +45,8 @@ def generar(filas: list[dict], cfg: dict, bd: BD) -> tuple[int, int]:
         d["nota"] = next((notas[u] for u in _urls(d) if u in notas), "")
         f = next((fav[u] for u in _urls(d) if u in fav), None)
         d["favorito"] = f is not None
+        # Solo los marcados con ⭐ llevan borde luminoso y no se pueden eliminar
+        d["estrella"] = bool(f and f.get("estrella"))
         d["aviso"] = f.get("aviso", "") if f else ""
         if f:
             elegidos.append(d)
@@ -59,7 +61,7 @@ def filas_actuales(bd: BD) -> list[dict]:
     import html as _html
     en_web = [
         (_html.unescape(m.group(1)), bool(m.group(2)))
-        for m in re.finditer(r'<article class="piso" data-url="([^"]+)"[^>]*?( data-nuevo="1")?>', texto)
+        for m in re.finditer(r'<article class="piso[^"]*" data-url="([^"]+)"[^>]*?( data-nuevo="1")?>', texto)
     ]
     por_url = {}
     for (datos,) in bd.con.execute("SELECT datos FROM anuncios"):
@@ -77,18 +79,26 @@ def filas_actuales(bd: BD) -> list[dict]:
 
 
 def anadir_favorito(url: str, bd: BD, cfg: dict) -> bool:
-    """Añade el piso a favoritos.json y regenera las webs. False si ya lo era."""
+    """Marca el piso con ⭐ (lo añade a favoritos.json si no estaba) y regenera las webs.
+
+    Devuelve False si ya estaba marcado.
+    """
     fav = _leer(RUTA_FAV, {"pisos": []})
-    if url in {p["url"] for p in fav["pisos"]}:
-        return False
     filas = filas_actuales(bd)
     d = next((x for x in filas if url in _urls(x)), None)
     if d is None:
         raise ValueError("Ese piso no está en la web")
-    fav["pisos"].append({
-        "titulo": d["titulo"], "url": d["url"], "precio": d["precio"],
-        "minutos_coche": round(d["minutos_coche"], 1), "anadido": date.today().isoformat(),
-    })
+    urls = set(_urls(d))
+    entrada = next((p for p in fav["pisos"] if p["url"] in urls), None)
+    if entrada and entrada.get("estrella"):
+        return False
+    if entrada is None:
+        entrada = {
+            "titulo": d["titulo"], "url": d["url"], "precio": d["precio"],
+            "minutos_coche": round(d["minutos_coche"], 1), "anadido": date.today().isoformat(),
+        }
+        fav["pisos"].append(entrada)
+    entrada["estrella"] = True
     _escribir(RUTA_FAV, fav)
     generar(filas, cfg, bd)
     return True
@@ -107,14 +117,18 @@ def guardar_nota(url: str, texto: str, bd: BD, cfg: dict):
 def eliminar(url: str, titulo: str, bd: BD, cfg: dict):
     """Elimina el piso por completo: de las webs, de la base de datos local y de la caché.
 
-    Queda apuntado en eliminados.json para que no vuelva en próximas búsquedas.
-    Los favoritos no se pueden eliminar (lanza PermissionError).
+    Queda apuntado en eliminados.json para que no vuelva en próximas búsquedas y sale de
+    favoritos.json. Los marcados con ⭐ no se pueden eliminar (lanza PermissionError).
     """
     filas = filas_actuales(bd)
     d = next((x for x in filas if url in _urls(x)), None)
     urls = set(_urls(d)) if d else {url}
-    if urls & set(favoritos()):
-        raise PermissionError("Los favoritos no se pueden eliminar")
+    fav = _leer(RUTA_FAV, {"pisos": []})
+    if any(p.get("estrella") for p in fav["pisos"] if p["url"] in urls):
+        raise PermissionError("Los favoritos marcados con ⭐ no se pueden eliminar")
+    if any(p["url"] in urls for p in fav["pisos"]):
+        fav["pisos"] = [p for p in fav["pisos"] if p["url"] not in urls]
+        _escribir(RUTA_FAV, fav)
 
     # Habitaclia y Fotocasa comparten anuncios con el mismo uuid y distinta URL:
     # se eliminan todas las copias para que no vuelva por el otro portal
