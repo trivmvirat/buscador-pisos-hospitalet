@@ -64,7 +64,12 @@ details summary { cursor:pointer; color:var(--acento); }
 .eliminar { margin-left:auto; border:1px solid var(--line); background:transparent; color:var(--sub);
             padding:4px 10px; border-radius:999px; cursor:pointer; font:inherit; font-size:13px; }
 .eliminar:hover { border-color:var(--aviso); color:var(--aviso); }
-.eliminar:disabled { opacity:.5; cursor:wait; }
+.eliminar:disabled { opacity:.45; cursor:not-allowed; }
+.eliminar:disabled:hover { border-color:var(--line); color:var(--sub); }
+/* Favoritos: borde luminoso para destacar los pisos buenos */
+.piso.favorito { border:2px solid var(--fav);
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--fav) 35%, transparent),
+             0 0 22px 4px color-mix(in srgb, var(--fav) 55%, transparent); }
 .eliminar.confirmar { background:var(--aviso); border-color:var(--aviso); color:#fff; font-weight:600; }
 .error-eliminar { color:var(--aviso); font-size:13px; margin:4px 0 0; }
 .vacio { color:var(--sub); padding:40px 0; text-align:center; }
@@ -280,14 +285,16 @@ def _ficha(a: dict) -> str:
     aprox = '<div class="aprox">Ubicación aproximada (por barrio)</div>' if a.get("coords_aprox") else ""
     lugar = ", ".join(x for x in (a.get("barrio"), a.get("municipio")) if x)
 
-    # Los favoritos no se pueden eliminar: llevan la estrella llena y no tienen botón 🗑
+    # Los favoritos tienen el botón 🗑 bloqueado: no se pueden eliminar
     if a.get("favorito"):
         enlaces.append('<span class="estrella activa" title="En tus favoritos">★ Favorito</span>')
+        enlaces.append('<button class="eliminar" type="button" disabled '
+                       'title="Los favoritos no se pueden eliminar">🔒 Eliminar</button>')
     else:
         enlaces.append('<button class="estrella" type="button" title="Añadir a favoritos">☆ Favorito</button>')
         enlaces.append(f'<button class="eliminar" type="button" data-titulo="{_e(a["titulo"])}">🗑 Eliminar</button>')
 
-    return f"""<article class="piso" data-url="{_e(a['url'])}" data-min="{a['minutos_coche']:.1f}" data-precio="{a['precio']}"{' data-nuevo="1"' if a['estado'] == 'nuevo' else ''}>
+    return f"""<article class="piso{' favorito' if a.get('favorito') else ''}" data-url="{_e(a['url'])}" data-min="{a['minutos_coche']:.1f}" data-precio="{a['precio']}"{' data-nuevo="1"' if a['estado'] == 'nuevo' else ''}>
   <div class="galeria">{galeria}</div>
   <div class="datos">
     <div class="cabeza"><span class="precio">{a['precio']} €/mes</span>
