@@ -26,7 +26,15 @@ Los filtros (precio, habitaciones, m², minutos, factor de tráfico, municipios)
 
 Las dos se enlazan entre sí desde arriba y se regeneran en cada `python buscar.py`.
 
-Para usar el botón **🗑 Eliminar**, abre las webs con el servidor local (no con doble clic en el archivo):
+Cada piso tiene:
+
+- **☆ / ★ Favorito**: se activa y desactiva con un clic. Marcado con ★ lleva un borde dorado
+  luminoso y su botón 🗑 queda bloqueado (🔒): no se puede eliminar.
+- **🗑 Eliminar**: dos clics. Lo borra de las webs, de `pisos.db` y de la caché (también sus copias
+  en otros portales) y lo apunta en `eliminados.json` para que no vuelva.
+- **📝 Mis notas**: hasta 500 caracteres, guardadas en `pisos.db` (tabla `notas`).
+
+Estos botones necesitan el servidor local (no funcionan abriendo el archivo con doble clic):
 
 ```bash
 python servir.py
