@@ -1,0 +1,82 @@
+# Configuración del buscador de pisos de alquiler
+
+[origen]
+# Punto desde el que se mide el trayecto en coche
+direccion = "Avinguda del Carrilet 3, Edifici D, 08902 L'Hospitalet de Llobregat"
+lat = 41.3646628
+lon = 2.1318380
+
+[filtros]
+precio_max = 1200          # €/mes
+precio_min = 0
+habitaciones_min = 0       # 0 = incluye estudios
+m2_min = 0
+minutos_coche_max = 20
+# OSRM calcula el tiempo sin tráfico. Se multiplica por este factor
+# para acercarlo a la hora punta (1.0 = sin tráfico).
+factor_trafico = 1.3
+# Descarta alquileres de temporada (contratos de pocos meses, habitaciones de estudiantes...)
+excluir_temporales = true
+
+# Municipios que se consultan. Luego se filtra cada anuncio por el tiempo en coche,
+# así que se puede incluir de más sin problema (solo tarda más en buscar).
+[fuentes.fotocasa]
+activa = true
+municipios = [
+  "l-hospitalet-de-llobregat",
+  "barcelona-capital",
+  "cornella-de-llobregat",
+  "esplugues-de-llobregat",
+  "sant-joan-despi",
+  "sant-just-desvern",
+  "el-prat-de-llobregat",
+  "sant-boi-de-llobregat",
+]
+
+[fuentes.habitaclia]
+activa = true
+# Habitaclia permite buscar en toda la provincia con el filtro de precio
+municipios = ["barcelona-provincia"]
+
+[fuentes.pisos_com]
+activa = true
+municipios = [
+  "hospitalet_de_llobregat",
+  "barcelona_capital",
+  "cornella_de_llobregat",
+  "esplugues_de_llobregat",
+  "sant_joan_despi",
+  "sant_just_desvern",
+  "el_prat_de_llobregat",
+  "sant_boi_de_llobregat",
+]
+
+# Portales que bloquean las peticiones automáticas: se leen desde Chrome
+# con chrome/extractor.js (lo hace Claude con la extensión de Chrome).
+[chrome]
+urls = [
+  "https://www.idealista.com/alquiler-viviendas/hospitalet-de-llobregat-barcelona/con-precio-hasta_1200/",
+  "https://www.idealista.com/alquiler-viviendas/barcelona/sants-montjuic/con-precio-hasta_1200/",
+  "https://www.idealista.com/alquiler-viviendas/barcelona/les-corts/con-precio-hasta_1200/",
+  "https://www.idealista.com/alquiler-viviendas/cornella-de-llobregat-barcelona/con-precio-hasta_1200/",
+  "https://www.idealista.com/alquiler-viviendas/esplugues-de-llobregat-barcelona/con-precio-hasta_1200/",
+  "https://www.idealista.com/alquiler-viviendas/sant-joan-despi-barcelona/con-precio-hasta_1200/",
+  "https://www.idealista.com/alquiler-viviendas/el-prat-de-llobregat-barcelona/con-precio-hasta_1200/",
+  "https://www.yaencontre.com/alquiler/pisos/hospitalet-de-llobregat-l/e-alquiler-vivienda-habitual/f--1200euros",
+  "https://www.yaencontre.com/alquiler/pisos/barcelona/e-alquiler-vivienda-habitual/f--1200euros",
+  "https://www.yaencontre.com/alquiler/pisos/cornella-de-llobregat/e-alquiler-vivienda-habitual/f--1200euros",
+  "https://www.wolorent.com/pisos-en-alquiler/barcelona/l-hospitalet-de-llobregat",
+  "https://www.wolorent.com/pisos-en-alquiler/barcelona/barcelona",
+  "https://www.wolorent.com/pisos-en-alquiler/barcelona/cornella-de-llobregat",
+  "https://www.wolorent.com/pisos-en-alquiler/barcelona/esplugues-de-llobregat",
+]
+
+[red]
+pausa_segundos = 3         # pausa entre páginas de un mismo portal
+paginas_max = 15           # por municipio
+
+[telegram]
+# Opcional: avisos de pisos nuevos en Telegram. Crea un bot con @BotFather.
+activo = false
+token = ""
+chat_id = ""

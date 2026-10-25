@@ -1,0 +1,18 @@
+# Datos personales y locales: no se publican
+pisos.db
+cache/
+entrada/
+contactados.json
+favoritos.json
+eliminados.json
+
+# Webs generadas (contienen teléfonos, notas y datos de los anuncios)
+informe.html
+favoritos.html
+
+# Python
+__pycache__/
+*.pyc
+
+# Ajustes locales de Claude Code
+.claude/settings.local.json
