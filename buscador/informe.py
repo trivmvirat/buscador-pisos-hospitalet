@@ -58,7 +58,8 @@ details summary { cursor:pointer; color:var(--acento); }
 .estrella { margin-left:auto; border:1px solid var(--line); background:transparent; color:var(--sub);
             padding:4px 10px; border-radius:999px; cursor:pointer; font:inherit; font-size:13px; }
 .estrella:hover { border-color:var(--fav); color:var(--fav); }
-.estrella.activa { border-color:var(--fav); color:var(--fav); font-weight:600; cursor:default; }
+.estrella.activa { border-color:var(--fav); color:var(--fav); font-weight:600; }
+.estrella.activa:hover { background:color-mix(in srgb, var(--fav) 15%, transparent); }
 .estrella:disabled { opacity:.5; cursor:wait; }
 .estrella + .eliminar { margin-left:0; }
 .eliminar { margin-left:auto; border:1px solid var(--line); background:transparent; color:var(--sub);
@@ -169,19 +170,21 @@ lista.addEventListener('click', async e => {
   const s = e.target.closest('button.estrella');
   if (!s) return;
   const piso = s.closest('.piso');
+  const activar = !s.classList.contains('activa');
+  const antes = s.textContent;
   s.disabled = true;
-  s.textContent = 'Añadiendo…';
+  s.textContent = activar ? 'Marcando…' : 'Quitando…';
   try {
     const r = await fetch('/api/favorito', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url: piso.dataset.url }),
+      body: JSON.stringify({ url: piso.dataset.url, activar }),
     });
     if (!r.ok) throw new Error('HTTP ' + r.status);
     location.reload();
   } catch (err) {
     s.disabled = false;
-    s.textContent = '☆ Favorito';
-    avisar(piso, s, 'No se pudo añadir. Abre la web con «python servir.py» en http://localhost:8765 (' + err.message + ').');
+    s.textContent = antes;
+    avisar(piso, s, 'No se pudo cambiar la estrella. Abre la web con «python servir.py» en http://localhost:8765 (' + err.message + ').');
   }
 });
 lista.addEventListener('click', async e => {
@@ -287,7 +290,7 @@ def _ficha(a: dict) -> str:
 
     # Solo los marcados con ⭐ tienen el botón 🗑 bloqueado: no se pueden eliminar
     if a.get("estrella"):
-        enlaces.append('<span class="estrella activa" title="En tus favoritos">★ Favorito</span>')
+        enlaces.append('<button class="estrella activa" type="button" title="Quitar la estrella">★ Favorito</button>')
         enlaces.append('<button class="eliminar" type="button" disabled '
                        'title="Los favoritos no se pueden eliminar">🔒 Eliminar</button>')
     else:

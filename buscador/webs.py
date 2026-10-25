@@ -104,6 +104,25 @@ def anadir_favorito(url: str, bd: BD, cfg: dict) -> bool:
     return True
 
 
+def quitar_estrella(url: str, bd: BD, cfg: dict) -> bool:
+    """Desmarca la ⭐: quita el borde y el bloqueo, pero el piso sigue en la selección.
+
+    Devuelve False si no estaba marcado.
+    """
+    fav = _leer(RUTA_FAV, {"pisos": []})
+    filas = filas_actuales(bd)
+    d = next((x for x in filas if url in _urls(x)), None)
+    urls = set(_urls(d)) if d else {url}
+    marcados = [p for p in fav["pisos"] if p["url"] in urls and p.get("estrella")]
+    if not marcados:
+        return False
+    for p in marcados:
+        p.pop("estrella")
+    _escribir(RUTA_FAV, fav)
+    generar(filas, cfg, bd)
+    return True
+
+
 def guardar_nota(url: str, texto: str, bd: BD, cfg: dict):
     """Guarda la nota del piso en pisos.db (tabla notas) y regenera las webs."""
     filas = filas_actuales(bd)

@@ -3,8 +3,9 @@
 Uso:
     python servir.py
 
-POST /api/favorito {"url": ...}
-  - lo añade a favoritos.json y regenera informe.html y favoritos.html
+POST /api/favorito {"url": ..., "activar": true | false}
+  - true: lo marca con ⭐ en favoritos.json (borde luminoso, no se puede eliminar)
+  - false: quita la ⭐; el piso sigue en la selección
 POST /api/nota {"url": ..., "texto": ...}
   - guarda la nota del piso (máx. 500 caracteres) en pisos.db, tabla notas
 POST /api/eliminar {"url": ..., "titulo": ...}
@@ -56,8 +57,12 @@ class Manejador(SimpleHTTPRequestHandler):
             with bloqueo:
                 bd = BD(str(RAIZ / "pisos.db"))
                 if self.path == "/api/favorito":
-                    nuevo = webs.anadir_favorito(url, bd, _config())
-                    print(f"Favorito {'añadido' if nuevo else '(ya lo era)'}: {url}")
+                    if datos.get("activar", True):
+                        nuevo = webs.anadir_favorito(url, bd, _config())
+                        print(f"⭐ {'marcado' if nuevo else '(ya lo estaba)'}: {url}")
+                    else:
+                        webs.quitar_estrella(url, bd, _config())
+                        print(f"⭐ desmarcado: {url}")
                 elif self.path == "/api/nota":
                     webs.guardar_nota(url, str(datos.get("texto", "")), bd, _config())
                     print(f"Nota guardada: {url}")
