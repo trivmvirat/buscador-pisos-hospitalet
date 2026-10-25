@@ -1,14 +1,9 @@
-# Datos personales y locales: no se publican
-pisos.db
-cache/
-entrada/
+# Datos personales: no se publican
+# contactados.json guarda a quién escribiste con tu nombre, teléfono y correo
 contactados.json
-favoritos.json
-eliminados.json
 
-# Webs generadas (contienen teléfonos, notas y datos de los anuncios)
-informe.html
-favoritos.html
+# Copia de seguridad de tus datos (contiene datos personales)
+*.zip
 
 # Python
 __pycache__/
@@ -16,6 +11,3 @@ __pycache__/
 
 # Ajustes locales de Claude Code
 .claude/settings.local.json
-
-# Copia de seguridad de tus datos (contiene datos personales)
-*.zip

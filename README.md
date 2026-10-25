@@ -27,9 +27,12 @@ Para buscar pisos nuevos, ejecuta `python buscar.py` una vez cuando quieras.
 
 ### En otro ordenador
 
-Tus datos (favoritos, notas, eliminados, contactados, base de datos) **no están en GitHub**.
-Cópialos desde el ordenador original: descomprime `mis-datos-pisos.zip` dentro de la carpeta del
-proyecto y luego ejecuta `python servir.py`.
+Los datos de los pisos (favoritos, eliminados, notas, base de datos y webs) **están en el repositorio**:
+clona o haz `git pull` y ejecuta `python servir.py`. Para llevar cambios de un ordenador a otro,
+haz commit y push de esos archivos en uno y `git pull` en el otro.
+
+**No se sube** `contactados.json` (a quién escribiste con tu nombre, teléfono y correo). Las notas sí
+se suben con `pisos.db`: no escribas en ellas datos personales si el repositorio es público.
 
 ## Webs que genera
 
