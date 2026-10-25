@@ -1,7 +1,8 @@
 """Sirve las webs en http://localhost:8765 y atiende los botones ⭐ Favorito y 🗑 Eliminar.
 
 Uso:
-    python servir.py
+    python servir.py                  # arranca y abre tu selección en el navegador
+    python servir.py --sin-navegador  # arranca sin abrir el navegador
 
 POST /api/favorito {"url": ..., "activar": true | false}
   - true: lo marca con ⭐ en favoritos.json (borde luminoso, no se puede eliminar)
@@ -18,6 +19,7 @@ import json
 import sys
 import threading
 import tomllib
+import webbrowser
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -89,5 +91,8 @@ if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
     servidor = ThreadingHTTPServer(("127.0.0.1", PUERTO), partial(Manejador, directory=str(RAIZ)))
-    print(f"Webs en http://localhost:{PUERTO}/informe.html  (Ctrl+C para parar)")
+    web = f"http://localhost:{PUERTO}/favoritos.html"
+    print(f"Webs en {web} y http://localhost:{PUERTO}/informe.html  (Ctrl+C para parar)")
+    if "--sin-navegador" not in sys.argv:
+        webbrowser.open(web)
     servidor.serve_forever()

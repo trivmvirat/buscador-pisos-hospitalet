@@ -16,3 +16,6 @@ __pycache__/
 
 # Ajustes locales de Claude Code
 .claude/settings.local.json
+
+# Copia de seguridad de tus datos (contiene datos personales)
+*.zip

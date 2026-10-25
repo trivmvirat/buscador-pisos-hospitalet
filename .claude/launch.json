@@ -4,7 +4,7 @@
     {
       "name": "informe",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["servir.py"],
+      "runtimeArgs": ["servir.py", "--sin-navegador"],
       "port": 8765
     }
   ]

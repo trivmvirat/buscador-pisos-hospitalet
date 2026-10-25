@@ -19,6 +19,18 @@ así que en la siguiente se marcan como **Nuevo** los que no estaban y se avisa 
 
 Los filtros (precio, habitaciones, m², minutos, factor de tráfico, municipios) están en `config.toml`.
 
+## Arrancar la web (Visual Studio Code)
+
+`python servir.py` (o **F5 → «Arrancar webs de pisos»** en VS Code) levanta la web y abre tu
+selección en el navegador. No busca en los portales: solo muestra tus pisos y atiende ⭐, 🗑 y notas.
+Para buscar pisos nuevos, ejecuta `python buscar.py` una vez cuando quieras.
+
+### En otro ordenador
+
+Tus datos (favoritos, notas, eliminados, contactados, base de datos) **no están en GitHub**.
+Cópialos desde el ordenador original: descomprime `mis-datos-pisos.zip` dentro de la carpeta del
+proyecto y luego ejecuta `python servir.py`.
+
 ## Webs que genera
 
 - `informe.html`: todos los pisos que cumplen los filtros.

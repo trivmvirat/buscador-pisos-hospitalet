@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Arrancar webs de pisos",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/servir.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Buscar pisos nuevos (una vez)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/buscar.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    }
+  ]
+}
