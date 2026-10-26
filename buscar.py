@@ -52,14 +52,34 @@ def recoger(cfg, sin_portales: bool) -> list[Anuncio]:
     return directos + list(chrome.cargar(RAIZ / "entrada"))
 
 
+def favoritos_guardados(bd, todos) -> list[Anuncio]:
+    """Favoritos que hoy no salen en los portales: se muestran con los datos guardados en pisos.db."""
+    vistos = {a.url for a in todos}
+    faltan = set(webs.favoritos()) - vistos
+    campos = Anuncio.__dataclass_fields__
+    guardados = []
+    for (datos,) in bd.con.execute("SELECT datos FROM anuncios"):
+        d = json.loads(datos)
+        if d["url"] in faltan:
+            a = Anuncio(**{k: v for k, v in d.items() if k in campos})
+            # Las copias de otros portales se guardan como dict: se vuelven a unir en deduplicar()
+            a.extra = {k: v for k, v in a.extra.items() if k not in ("duplicados", "tambien_en")}
+            guardados.append(a)
+    if guardados:
+        print(f"  {len(guardados)} favoritos no salen hoy en los portales: se usan sus datos guardados")
+    return guardados
+
+
 def pasa_filtros(a, f) -> bool:
     if not (f["precio_min"] <= a.precio <= f["precio_max"]):
         return False
-    texto = f"{a.titulo} {a.anunciante} {a.url} {a.descripcion}".lower()
-    if f["excluir_temporales"] and (a.temporal or RE_TEMPORADA.search(texto)):
-        return False
-    if any(x.lower() in texto for x in f.get("excluir_anunciantes", [])):
-        return False
+    # Los favoritos los ha elegido el usuario: no se descartan por el texto del anuncio
+    if a.url not in webs.favoritos():
+        texto = f"{a.titulo} {a.anunciante} {a.url} {a.descripcion}".lower()
+        if f["excluir_temporales"] and (a.temporal or RE_TEMPORADA.search(texto)):
+            return False
+        if any(x.lower() in texto for x in f.get("excluir_anunciantes", [])):
+            return False
     if f["habitaciones_min"] and (a.habitaciones or 0) < f["habitaciones_min"]:
         return False
     if f["m2_min"] and a.m2 and a.m2 < f["m2_min"]:
@@ -162,6 +182,7 @@ def main():
 
     print("Buscando anuncios…")
     todos = recoger(cfg, args.sin_portales)
+    todos += favoritos_guardados(bd, todos)
     candidatos = deduplicar([a for a in todos if pasa_filtros(a, f)])
     print(f"{len(todos)} anuncios leídos · {len(candidatos)} cumplen precio/tipo (sin duplicados)")
     candidatos = quitar_eliminados(candidatos)

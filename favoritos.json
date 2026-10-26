@@ -1,4 +1,43 @@
 {
  "descripcion": "Pisos que interesan. Se añaden durante la búsqueda; al final se genera una web solo con estos.",
- "pisos": []
+ "pisos": [
+  {
+   "titulo": "Piso en Collblanc - La Torrassa, Collblanc",
+   "url": "https://www.fotocasa.es/es/alquiler/vivienda/l-hospitalet-de-llobregat/aire-acondicionado-calefaccion-amueblado-television/191176572/d",
+   "precio": 950,
+   "minutos_coche": 9.6,
+   "anadido": "2026-10-24"
+  },
+  {
+   "titulo": "Piso en Calle Campoamor, 55, Bellvitge, Hospitalet de Llobregat",
+   "url": "https://www.idealista.com/inmueble/112802645/",
+   "precio": 977,
+   "minutos_coche": 9.7,
+   "anadido": "2026-10-24",
+   "estrella": true
+  },
+  {
+   "titulo": "Estudio en Centre Del, Centre, Hospitalet de Llobregat",
+   "url": "https://www.idealista.com/inmueble/112894724/",
+   "precio": 804,
+   "minutos_coche": 9.7,
+   "anadido": "2026-10-24",
+   "estrella": true
+  },
+  {
+   "titulo": "Piso en Calle de Salvà, El Poble Sec - Parc de Montjuïc, Barcelona",
+   "url": "https://www.idealista.com/inmueble/105813921/",
+   "precio": 1090,
+   "minutos_coche": 12.4,
+   "anadido": "2026-10-24"
+  },
+  {
+   "titulo": "Piso en Sants",
+   "url": "https://www.fotocasa.es/es/alquiler/vivienda/barcelona-capital/aire-acondicionado-calefaccion-amueblado-television/190623503/d",
+   "precio": 1100,
+   "minutos_coche": 6.6,
+   "anadido": "2026-10-25",
+   "estrella": true
+  }
+ ]
 }
