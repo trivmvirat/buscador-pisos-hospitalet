@@ -6,6 +6,7 @@ Uso:
 """
 import argparse
 import json
+import re
 import sys
 import tomllib
 import unicodedata
@@ -20,6 +21,11 @@ RAIZ = Path(__file__).parent
 # Con ubicación por barrio el error puede ser de varios minutos: se deja pasar
 # con margen y se recalcula con la ficha (coordenadas exactas) cuando la hay
 MARGEN_APROX_MIN = 5
+# Alquiler de temporada aunque el portal no lo marque
+RE_TEMPORADA = re.compile(
+    r"(?<!larga )temporada|temporal|temporary|por meses|estancia m[ií]nima|estudiantes|vacacional"
+    r"|32\)? d[ií]as|treinta y dos|1[01] meses|once meses|inferiores a \d+ meses"
+)
 
 
 def _norm(t: str) -> str:
@@ -49,7 +55,10 @@ def recoger(cfg, sin_portales: bool) -> list[Anuncio]:
 def pasa_filtros(a, f) -> bool:
     if not (f["precio_min"] <= a.precio <= f["precio_max"]):
         return False
-    if f["excluir_temporales"] and a.temporal:
+    texto = f"{a.titulo} {a.anunciante} {a.url} {a.descripcion}".lower()
+    if f["excluir_temporales"] and (a.temporal or RE_TEMPORADA.search(texto)):
+        return False
+    if any(x.lower() in texto for x in f.get("excluir_anunciantes", [])):
         return False
     if f["habitaciones_min"] and (a.habitaciones or 0) < f["habitaciones_min"]:
         return False

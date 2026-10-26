@@ -1,10 +1,10 @@
 {
  "portal": "yaencontre",
- "fecha": "2026-10-24T12:40:00",
+ "fecha": "2026-10-26T17:00:00",
  "anuncios": [
   {
    "id": "112894724",
-   "titulo": "Estudio en Centre, Hospitalet de Llobregat, L´",
+   "titulo": "Estudio en Centre, Hospitalet de Llobregat",
    "url": "https://www.yaencontre.com/alquiler/piso/inmueble-55067-112894724",
    "precio": 804,
    "municipio": "L'Hospitalet de Llobregat",
@@ -12,115 +12,51 @@
    "habitaciones": null,
    "banos": 1,
    "m2": 60,
-   "temporal": false
+   "imagen": "https://media.yaencontre.com/img/photo/w1024/55067/55067-57760700-1528464144.jpg",
+   "temporal": false,
+   "texto": ""
   },
   {
-   "id": "97518085",
-   "titulo": "Estudio en Collblanc, Hospitalet de Llobregat, L´",
-   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-60711-97518085",
-   "precio": 800,
-   "municipio": "L'Hospitalet de Llobregat",
-   "barrio": "Collblanc",
-   "habitaciones": null,
+   "id": "112910630",
+   "titulo": "Piso en El Poblenou, Barcelona",
+   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-36352-112910630",
+   "precio": 922,
+   "municipio": "Barcelona",
+   "barrio": "El Poblenou",
+   "habitaciones": 2,
    "banos": 1,
-   "m2": 29,
-   "temporal": false
+   "m2": 55,
+   "imagen": "https://media.yaencontre.com/img/photo/w1024/36352/36352-57770505-1528892393.jpg",
+   "temporal": false,
+   "texto": "Piso de 55 m² en la Rambla de Poblenou, a 2 calles del mar."
   },
   {
-   "id": "112894856",
+   "id": "89747124",
+   "titulo": "Piso en El Gòtic, Barcelona",
+   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-54968-89747124",
+   "precio": 853,
+   "municipio": "Barcelona",
+   "barrio": "El Gòtic",
+   "habitaciones": 1,
+   "banos": 1,
+   "m2": 50,
+   "imagen": "https://media.yaencontre.com/img/photo/w1024/54968/54968-57770539-1528893440.jpg",
+   "temporal": false,
+   "texto": "Arrendamiento de vivienda habitual, contrato de 5 años. Propiedad gran tenedor."
+  },
+  {
+   "id": "112907314",
    "titulo": "Piso en El Poble Sec - Parc de Montjuïc, Barcelona",
-   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-56197-112894856",
-   "precio": 1147,
+   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-92922-112907314",
+   "precio": 880,
    "municipio": "Barcelona",
    "barrio": "El Poble Sec - Parc de Montjuïc",
-   "habitaciones": 3,
-   "banos": 1,
-   "m2": 83,
-   "temporal": false
-  },
-  {
-   "id": "112897631",
-   "titulo": "Estudio en carretera De la Santa Creu D'olorda, Vallvidrera - El Tibidabo i les Planes, Barcelona",
-   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-55535-112897631",
-   "precio": 1600,
-   "municipio": "Barcelona",
-   "barrio": "carretera De la Santa Creu D'olorda, Vallvidrera - El Tibidabo i les Planes",
-   "habitaciones": null,
-   "banos": 1,
-   "m2": 80,
-   "temporal": false
-  },
-  {
-   "id": "112897032",
-   "titulo": "Piso en La Font de la Guatlla, Barcelona",
-   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-4428-112897032",
-   "precio": 1332,
-   "municipio": "Barcelona",
-   "barrio": "La Font de la Guatlla",
    "habitaciones": 2,
    "banos": 1,
-   "m2": 80,
-   "temporal": false
-  },
-  {
-   "id": "112896617",
-   "titulo": "Piso en Can Calders - Mas Lluí - Roses Castellbell, Sant Feliu de Llobregat",
-   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-60276-112896617",
-   "precio": 919,
-   "municipio": "Sant Feliu de Llobregat",
-   "barrio": "Can Calders - Mas Lluí - Roses Castellbell",
-   "habitaciones": 3,
-   "banos": 1,
-   "m2": 72,
-   "temporal": false
-  },
-  {
-   "id": "112898574",
-   "titulo": "Piso en El Raval, Barcelona",
-   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-60515-112898574",
-   "precio": 1010,
-   "municipio": "Barcelona",
-   "barrio": "El Raval",
-   "habitaciones": 1,
-   "banos": 1,
-   "m2": 39,
-   "temporal": false
-  },
-  {
-   "id": "112897399",
-   "titulo": "Piso en Vinyets - Molí Vell, Sant Boi de Llobregat",
-   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-80945-112897399",
-   "precio": 890,
-   "municipio": "Sant Boi de Llobregat",
-   "barrio": "Vinyets - Molí Vell",
-   "habitaciones": 3,
-   "banos": 1,
-   "m2": 75,
-   "temporal": false
-  },
-  {
-   "id": "112884652",
-   "titulo": "Piso en La Marina del Prat Vermell, Barcelona",
-   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-26202-112884652",
-   "precio": 1450,
-   "municipio": "Barcelona",
-   "barrio": "La Marina del Prat Vermell",
-   "habitaciones": 1,
-   "banos": 1,
-   "m2": 59,
-   "temporal": false
-  },
-  {
-   "id": "112860831",
-   "titulo": "Piso en Sants-Badal, Barcelona",
-   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-56071-112860831",
-   "precio": 1000,
-   "municipio": "Barcelona",
-   "barrio": "Sants-Badal",
-   "habitaciones": 2,
-   "banos": 1,
-   "m2": 62,
-   "temporal": false
+   "m2": 47,
+   "imagen": "https://media.yaencontre.com/img/photo/w1024/92922/92922-57768275-1528807120.jpg",
+   "temporal": false,
+   "texto": "Piso luminoso en Poble Sec. 2 dormitorios, cocina independiente, comedor, sala de estar, baño completo y balcón. Antes de visitar piden presentación de los interesados (contrato e ingresos)."
   },
   {
    "id": "112862403",
@@ -132,7 +68,9 @@
    "habitaciones": 2,
    "banos": 1,
    "m2": 48,
-   "temporal": false
+   "imagen": "https://media.yaencontre.com/img/photo/w1024/80272/80272-57737283-1527558013.jpg",
+   "temporal": false,
+   "texto": "NO ESTAMOS REALIZANDO MÁS VISITAS. Junto al metro del Carmel (L5). Tercero sin ascensor, totalmente reformado."
   },
   {
    "id": "95157589",
@@ -144,19 +82,9 @@
    "habitaciones": 1,
    "banos": 1,
    "m2": 28,
-   "temporal": false
-  },
-  {
-   "id": "112842636",
-   "titulo": "Piso en calle De Llinars del Vallès, El Bon Pastor, Barcelona",
-   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-60515-112842636",
-   "precio": 1195,
-   "municipio": "Barcelona",
-   "barrio": "calle De Llinars del Vallès, El Bon Pastor",
-   "habitaciones": 1,
-   "banos": 1,
-   "m2": 40,
-   "temporal": false
+   "imagen": "https://media.yaencontre.com/img/photo/w1024/56199/56199-57729846-1527276058.jpg",
+   "temporal": false,
+   "texto": "Luminoso piso al lado del Born: salón y cocina con balcón, un dormitorio y baño. Amueblado y con cocina equipada. Todo exterior."
   },
   {
    "id": "112794647",
@@ -168,7 +96,9 @@
    "habitaciones": 1,
    "banos": 1,
    "m2": 29,
-   "temporal": false
+   "imagen": "https://media.yaencontre.com/img/photo/w1024/55259/55259-57699580-1525991293.jpg",
+   "temporal": false,
+   "texto": "Piso de 1 habitación en la Barceloneta, aire acondicionado, cerca de la playa. Disponible 1 de noviembre de 2026. Amueblado y equipado."
   },
   {
    "id": "112763381",
@@ -180,43 +110,23 @@
    "habitaciones": 1,
    "banos": 1,
    "m2": 43,
-   "temporal": false
+   "imagen": "https://media.yaencontre.com/img/photo/w1024/56507/56507-57671380-1528043449.jpg",
+   "temporal": false,
+   "texto": "Piso en Padilla con amplia terraza y vistas a la Sagrada Família. 43 m², octava planta real, luminoso."
   },
   {
-   "id": "89951774",
-   "titulo": "Estudio en El Poble Sec - Parc de Montjuïc, Barcelona",
-   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-51658-89951774",
-   "precio": 950,
+   "id": "112767083",
+   "titulo": "Piso en Fort Pienc, Barcelona",
+   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-4428-112767083",
+   "precio": 1200,
    "municipio": "Barcelona",
-   "barrio": "El Poble Sec - Parc de Montjuïc",
-   "habitaciones": null,
-   "banos": 2,
-   "m2": 71,
-   "temporal": false
-  },
-  {
-   "id": "112364638",
-   "titulo": "Ático en El Raval, Barcelona",
-   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-56071-112364638",
-   "precio": 1125,
-   "municipio": "Barcelona",
-   "barrio": "El Raval",
-   "habitaciones": null,
+   "barrio": "Fort Pienc",
+   "habitaciones": 1,
    "banos": 1,
-   "m2": 44,
-   "temporal": false
-  },
-  {
-   "id": "112226064",
-   "titulo": "Piso en El Poblenou, Barcelona",
-   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-92922-112226064",
-   "precio": 980,
-   "municipio": "Barcelona",
-   "barrio": "El Poblenou",
-   "habitaciones": 3,
-   "banos": 1,
-   "m2": 62,
-   "temporal": false
+   "m2": 53,
+   "imagen": "https://media.yaencontre.com/img/photo/w1024/4428/4428-57673888-1524946029.jpg",
+   "temporal": false,
+   "texto": "51 m², 1 dormitorio con a/c, cocina americana equipada abierta al salón, baño completo. Amueblado. No se aceptan animales."
   },
   {
    "id": "111957262",
@@ -228,7 +138,9 @@
    "habitaciones": 2,
    "banos": 1,
    "m2": 63,
-   "temporal": false
+   "imagen": "https://media.yaencontre.com/img/photo/w1024/53411/53411-57169532-1503963460.jpg",
+   "temporal": false,
+   "texto": "Planta baja en la Plaza Mercadal de Sant Andreu. Para visitar hay que enviar documentación por la web de la agencia."
   },
   {
    "id": "87276049",
@@ -240,31 +152,9 @@
    "habitaciones": 3,
    "banos": 1,
    "m2": 70,
-   "temporal": false
-  },
-  {
-   "id": "91436672",
-   "titulo": "Piso en Vila de Gràcia, Barcelona",
-   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-54945-91436672",
-   "precio": 900,
-   "municipio": "Barcelona",
-   "barrio": "Vila de Gràcia",
-   "habitaciones": 2,
-   "banos": 1,
-   "m2": 55,
-   "temporal": false
-  },
-  {
-   "id": "110137621",
-   "titulo": "Estudio en avenida Diagonal, La Dreta de l'Eixample, Barcelona",
-   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-27550-110137621",
-   "precio": 726,
-   "municipio": "Barcelona",
-   "barrio": "avenida Diagonal, La Dreta de l'Eixample",
-   "habitaciones": null,
-   "banos": 1,
-   "m2": 27,
-   "temporal": false
+   "imagen": "https://media.yaencontre.com/img/photo/w1024/54945/54945-57085850-1500727659.jpg",
+   "temporal": false,
+   "texto": "Antes de visitar estudian la documentación (3 últimas nóminas, DNI/NIE, contrato laboral)."
   },
   {
    "id": "109390289",
@@ -276,7 +166,9 @@
    "habitaciones": null,
    "banos": 1,
    "m2": 36,
-   "temporal": false
+   "imagen": "https://media.yaencontre.com/img/photo/w1024/68614/68614-55449160-1441982914.jpg",
+   "temporal": false,
+   "texto": "Estudio acogedor y luminoso, séptimo real, con terraza con vistas al mar. Cama de matrimonio, armario, mesa de comedor y cocina equipada."
   },
   {
    "id": "96642950",
@@ -288,7 +180,9 @@
    "habitaciones": 1,
    "banos": 1,
    "m2": 44,
-   "temporal": false
+   "imagen": "https://media.yaencontre.com/img/photo/w1024/56535/56535-53708552-1381922211.jpg",
+   "temporal": false,
+   "texto": "Apartamento tranquilo en el corazón de Gràcia. Visitas de 9 a 14 h por teléfono. Muebles de las fotos no incluidos. No se aceptan mascotas."
   },
   {
    "id": "105813921",
@@ -300,7 +194,9 @@
    "habitaciones": 2,
    "banos": 1,
    "m2": 55,
-   "temporal": false
+   "imagen": "https://media.yaencontre.com/img/photo/w1024/51145/51145-53049843-1360810886.jpg",
+   "temporal": false,
+   "texto": "* LARGO PLAZO * RENTA LIMITADA * SIN HONORARIOS DE AGENCIA * Piso luminoso y tranquilo en Poblesec. Dos dormitorios dobles, salón comedor, balcón, baño con ducha y cocina equipada."
   },
   {
    "id": "103774556",
@@ -312,7 +208,9 @@
    "habitaciones": null,
    "banos": 1,
    "m2": 35,
-   "temporal": false
+   "imagen": "https://media.yaencontre.com/img/photo/w1024/54692/54692-51595990-1307598802.jpg",
+   "temporal": false,
+   "texto": "31 m² útiles en la calle Major de Sarrià, junto a la Plaça de Sant Vicenç. A 650 m de las estaciones de FFCC de Sarrià y Les Tres Torres. Un único ambiente."
   },
   {
    "id": "26815770",
@@ -324,19 +222,9 @@
    "habitaciones": null,
    "banos": 1,
    "m2": 25,
-   "temporal": false
-  },
-  {
-   "id": "92610437",
-   "titulo": "Ático en Vila de Gràcia, Barcelona",
-   "url": "https://www.yaencontre.com/alquiler/piso/inmueble-12679-92610437",
-   "precio": 1056,
-   "municipio": "Barcelona",
-   "barrio": "Vila de Gràcia",
-   "habitaciones": null,
-   "banos": 1,
-   "m2": 30,
-   "temporal": false
+   "imagen": "https://media.yaencontre.com/img/photo/w1024/56420/56420-51511369-1297902085.jpg",
+   "temporal": false,
+   "texto": "Ático estudio de 25 m² amueblado en finca rehabilitada. Baño reformado, cocina reformada, terraza privada de 20 m² con vistas. Sin ascensor."
   },
   {
    "id": "102166329",
@@ -348,7 +236,9 @@
    "habitaciones": null,
    "banos": 1,
    "m2": 40,
-   "temporal": false
+   "imagen": "https://media.yaencontre.com/img/photo/w1024/56658/56658-50225842-1257127328.jpg",
+   "temporal": false,
+   "texto": "Bonito loft reformado, totalmente amueblado. Ventanas al exterior. Zona tranquila y residencial."
   },
   {
    "id": "99106149",
@@ -360,7 +250,9 @@
    "habitaciones": 1,
    "banos": 1,
    "m2": 50,
-   "temporal": false
+   "imagen": "https://media.yaencontre.com/img/photo/w1024/64339/64339-47361814-1157520188.jpg",
+   "temporal": false,
+   "texto": "Vivienda reformada junto al metro La Sagrera y Av. Meridiana. 50 m², comedor de 20 m², 1 habitación doble, cocina equipada."
   }
  ]
 }

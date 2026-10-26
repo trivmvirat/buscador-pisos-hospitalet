@@ -15,8 +15,11 @@ minutos_coche_max = 20
 # OSRM calcula el tiempo sin tráfico. Se multiplica por este factor
 # para acercarlo a la hora punta (1.0 = sin tráfico).
 factor_trafico = 1.3
-# Descarta alquileres de temporada (contratos de pocos meses, habitaciones de estudiantes...)
+# Descarta alquileres de temporada (contratos de pocos meses, habitaciones de estudiantes...).
+# Además del aviso del portal, busca «temporada», «temporal»... en título, URL y descripción
 excluir_temporales = true
+# Descarta los anuncios de estos anunciantes (se busca en anunciante, URL y descripción)
+excluir_anunciantes = ["spotahome"]
 
 # Municipios que se consultan. Luego se filtra cada anuncio por el tiempo en coche,
 # así que se puede incluir de más sin problema (solo tarda más en buscar).
